@@ -3,22 +3,11 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class CalculadoraController {
-    private JTextField display;
-    private double numero1, numero2, resultado;
-    private String operacion;
+    public static void manejarEvento(String comando) {
+        JTextField display = new JTextField();
+        double numero1=0, numero2, resultado=0;
+        String operacion="";
 
-    public CalculadoraController(JTextField display, JButton[] botones) {
-        this.display = display;
-        for (JButton boton : botones) {
-            boton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    manejarEvento(e.getActionCommand());
-                }
-            });
-        }
-    }
-
-    private void manejarEvento(String comando) {
         if (comando.matches("[0-9.]")) {
             display.setText(display.getText() + comando);
         } else if (comando.matches("[+\\-*/]")) {

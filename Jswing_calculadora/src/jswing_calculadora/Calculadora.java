@@ -9,12 +9,6 @@ package jswing_calculadora;
  * @author samue
  */
 public class Calculadora extends javax.swing.JFrame {
-
-    @Override
-    public void setTitle(String title) {
-        super.setTitle(title);
-    }
-    
     /**
      * Creates new form Calculadora
      */
@@ -31,7 +25,7 @@ public class Calculadora extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        resultado = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         boton_resta = new javax.swing.JButton();
         boton_suma = new javax.swing.JButton();
         boton_dividir = new javax.swing.JButton();
@@ -50,17 +44,14 @@ public class Calculadora extends javax.swing.JFrame {
         boton_resultado = new javax.swing.JButton();
         boton_decimal = new javax.swing.JButton();
         boton_multi = new javax.swing.JButton();
+        resultado = new javax.swing.JTextField();
+
+        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Calculadora");
         setBackground(new java.awt.Color(153, 153, 153));
         setResizable(false);
-
-        resultado.setBackground(new java.awt.Color(204, 204, 204));
-        resultado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        resultado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        resultado.setToolTipText("");
-        resultado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 5, true));
-        resultado.setOpaque(true);
 
         boton_resta.setBackground(new java.awt.Color(51, 51, 51));
         boton_resta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -91,6 +82,11 @@ public class Calculadora extends javax.swing.JFrame {
         boton_CE.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         boton_CE.setForeground(new java.awt.Color(255, 255, 255));
         boton_CE.setText("CE");
+        boton_CE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_CEActionPerformed(evt);
+            }
+        });
 
         boton_8.setBackground(new java.awt.Color(102, 102, 102));
         boton_8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -161,6 +157,11 @@ public class Calculadora extends javax.swing.JFrame {
         boton_resultado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         boton_resultado.setForeground(new java.awt.Color(255, 255, 255));
         boton_resultado.setText("=");
+        boton_resultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_resultadoActionPerformed(evt);
+            }
+        });
 
         boton_decimal.setBackground(new java.awt.Color(102, 102, 102));
         boton_decimal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -177,21 +178,21 @@ public class Calculadora extends javax.swing.JFrame {
             }
         });
 
+        resultado.setEditable(false);
+        resultado.setBackground(new java.awt.Color(204, 204, 204));
+        resultado.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        resultado.setForeground(new java.awt.Color(0, 0, 0));
+        resultado.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        resultado.setText("jTextField2");
+        resultado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 5, true));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(boton_dividir, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(boton_multi, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(boton_resta, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(boton_suma, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,14 +223,22 @@ public class Calculadora extends javax.swing.JFrame {
                             .addComponent(boton_resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(boton_CE, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(boton_C, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(boton_C, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(boton_dividir, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(boton_multi, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(boton_resta, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(boton_suma, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addComponent(resultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(resultado)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boton_resta, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,6 +301,17 @@ public class Calculadora extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_multiActionPerformed
 
+    private void boton_CEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_CEActionPerformed
+        // TODO add your handling code here:
+        CalculadoraController.manejarEvento(evt.getActionCommand());
+    }//GEN-LAST:event_boton_CEActionPerformed
+
+    private void boton_resultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_resultadoActionPerformed
+        // TODO add your handling code here:
+        String resultado1="aaa";
+        resultado.setText(resultado1);
+    }//GEN-LAST:event_boton_resultadoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -323,6 +343,8 @@ public class Calculadora extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Calculadora().setVisible(true);
+                
+
             }
         });
     }
@@ -346,6 +368,7 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JButton boton_resta;
     private javax.swing.JButton boton_resultado;
     private javax.swing.JButton boton_suma;
-    private javax.swing.JLabel resultado;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField resultado;
     // End of variables declaration//GEN-END:variables
 }
