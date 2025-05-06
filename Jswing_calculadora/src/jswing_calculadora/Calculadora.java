@@ -9,6 +9,10 @@ package jswing_calculadora;
  * @author samue
  */
 public class Calculadora extends javax.swing.JFrame {
+
+    private String num1 = "0", num2 = "0", opera = null;
+    private double solocion;
+
     /**
      * Creates new form Calculadora
      */
@@ -57,6 +61,11 @@ public class Calculadora extends javax.swing.JFrame {
         boton_resta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         boton_resta.setForeground(new java.awt.Color(255, 255, 255));
         boton_resta.setText("-");
+        boton_resta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_restaActionPerformed(evt);
+            }
+        });
 
         boton_suma.setBackground(new java.awt.Color(51, 51, 51));
         boton_suma.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -102,26 +111,51 @@ public class Calculadora extends javax.swing.JFrame {
         boton_9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         boton_9.setForeground(new java.awt.Color(255, 255, 255));
         boton_9.setText("9");
+        boton_9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_9ActionPerformed(evt);
+            }
+        });
 
         boton_7.setBackground(new java.awt.Color(102, 102, 102));
         boton_7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         boton_7.setForeground(new java.awt.Color(255, 255, 255));
         boton_7.setText("7");
+        boton_7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_7ActionPerformed(evt);
+            }
+        });
 
         boton_C.setBackground(new java.awt.Color(51, 51, 51));
         boton_C.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         boton_C.setForeground(new java.awt.Color(255, 255, 255));
         boton_C.setText("C");
+        boton_C.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_CActionPerformed(evt);
+            }
+        });
 
         boton_2.setBackground(new java.awt.Color(102, 102, 102));
         boton_2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         boton_2.setForeground(new java.awt.Color(255, 255, 255));
         boton_2.setText("2");
+        boton_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_2ActionPerformed(evt);
+            }
+        });
 
         boton_3.setBackground(new java.awt.Color(102, 102, 102));
         boton_3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         boton_3.setForeground(new java.awt.Color(255, 255, 255));
         boton_3.setText("3");
+        boton_3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_3ActionPerformed(evt);
+            }
+        });
 
         boton_1.setBackground(new java.awt.Color(102, 102, 102));
         boton_1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -137,21 +171,41 @@ public class Calculadora extends javax.swing.JFrame {
         boton_0.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         boton_0.setForeground(new java.awt.Color(255, 255, 255));
         boton_0.setText("0");
+        boton_0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_0ActionPerformed(evt);
+            }
+        });
 
         boton_5.setBackground(new java.awt.Color(102, 102, 102));
         boton_5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         boton_5.setForeground(new java.awt.Color(255, 255, 255));
         boton_5.setText("5");
+        boton_5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_5ActionPerformed(evt);
+            }
+        });
 
         boton_6.setBackground(new java.awt.Color(102, 102, 102));
         boton_6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         boton_6.setForeground(new java.awt.Color(255, 255, 255));
         boton_6.setText("6");
+        boton_6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_6ActionPerformed(evt);
+            }
+        });
 
         boton_4.setBackground(new java.awt.Color(102, 102, 102));
         boton_4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         boton_4.setForeground(new java.awt.Color(255, 255, 255));
         boton_4.setText("4");
+        boton_4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_4ActionPerformed(evt);
+            }
+        });
 
         boton_resultado.setBackground(new java.awt.Color(153, 0, 153));
         boton_resultado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -167,6 +221,11 @@ public class Calculadora extends javax.swing.JFrame {
         boton_decimal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         boton_decimal.setForeground(new java.awt.Color(255, 255, 255));
         boton_decimal.setText(",");
+        boton_decimal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_decimalActionPerformed(evt);
+            }
+        });
 
         boton_multi.setBackground(new java.awt.Color(51, 51, 51));
         boton_multi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -183,8 +242,12 @@ public class Calculadora extends javax.swing.JFrame {
         resultado.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         resultado.setForeground(new java.awt.Color(0, 0, 0));
         resultado.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        resultado.setText("jTextField2");
         resultado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 5, true));
+        resultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -283,34 +346,126 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void boton_dividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_dividirActionPerformed
         // TODO add your handling code here:
+        opera = "/";
+        resultado.setText("");
     }//GEN-LAST:event_boton_dividirActionPerformed
 
     private void boton_sumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_sumaActionPerformed
         // TODO add your handling code here:
+        opera = "+";
+        resultado.setText("");
     }//GEN-LAST:event_boton_sumaActionPerformed
 
     private void boton_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_8ActionPerformed
         // TODO add your handling code here:
+        resultado.setText(resultado.getText() + "8");
     }//GEN-LAST:event_boton_8ActionPerformed
 
     private void boton_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_1ActionPerformed
         // TODO add your handling code here:
+        resultado.setText(resultado.getText() + "1");
     }//GEN-LAST:event_boton_1ActionPerformed
 
     private void boton_multiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_multiActionPerformed
         // TODO add your handling code here:
+        opera = "*";
+        resultado.setText("");
     }//GEN-LAST:event_boton_multiActionPerformed
 
     private void boton_CEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_CEActionPerformed
         // TODO add your handling code here:
-        CalculadoraController.manejarEvento(evt.getActionCommand());
+        resultado.setText("");
     }//GEN-LAST:event_boton_CEActionPerformed
 
     private void boton_resultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_resultadoActionPerformed
         // TODO add your handling code here:
-        String resultado1="aaa";
-        resultado.setText(resultado1);
+        if (opera == null) {
+            num1 = resultado.getText();
+            resultado.setText(num1);
+        } else {
+            try {
+                double numero1 = Double.parseDouble(num1);
+                double numero2 = Double.parseDouble(num2);
+                switch (opera) {
+                    case "+"-> {solocion = numero1 + numero2;}
+                    case "-" -> {solocion = numero1 - numero2;}
+                    case "*" -> {solocion = numero1 * numero2;}
+                    case "/" -> {
+                        if (numero2 == 0) {
+                            throw new ArithmeticException();
+                        } else {
+                            solocion = numero1 / numero2;
+                        }
+                    }
+                }
+                resultado.setText(String.valueOf(solocion));
+            } catch (NumberFormatException e) {
+                System.out.println("No has introducido un numero valido");
+            } catch (ArithmeticException e) {
+                System.out.println("No ser puede dividir entre 0");
+            }
+        }
     }//GEN-LAST:event_boton_resultadoActionPerformed
+
+    private void resultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resultadoActionPerformed
+
+    private void boton_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_2ActionPerformed
+        // TODO add your handling code here:
+        resultado.setText(resultado.getText() + "2");
+    }//GEN-LAST:event_boton_2ActionPerformed
+
+    private void boton_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_3ActionPerformed
+        // TODO add your handling code here:
+        resultado.setText(resultado.getText() + "3");
+    }//GEN-LAST:event_boton_3ActionPerformed
+
+    private void boton_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_4ActionPerformed
+        // TODO add your handling code here:
+        resultado.setText(resultado.getText() + "4");
+    }//GEN-LAST:event_boton_4ActionPerformed
+
+    private void boton_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_5ActionPerformed
+        // TODO add your handling code here:
+        resultado.setText(resultado.getText() + "5");
+    }//GEN-LAST:event_boton_5ActionPerformed
+
+    private void boton_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_6ActionPerformed
+        // TODO add your handling code here:
+        resultado.setText(resultado.getText() + "6");
+    }//GEN-LAST:event_boton_6ActionPerformed
+
+    private void boton_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_7ActionPerformed
+        // TODO add your handling code here:
+        resultado.setText(resultado.getText() + "7");
+    }//GEN-LAST:event_boton_7ActionPerformed
+
+    private void boton_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_9ActionPerformed
+        // TODO add your handling code here:
+        resultado.setText(resultado.getText() + "9");
+    }//GEN-LAST:event_boton_9ActionPerformed
+
+    private void boton_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_0ActionPerformed
+        // TODO add your handling code here:
+        resultado.setText(resultado.getText() + "0");
+    }//GEN-LAST:event_boton_0ActionPerformed
+
+    private void boton_decimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_decimalActionPerformed
+        // TODO add your handling code here:
+        resultado.setText(resultado.getText() + ",");
+    }//GEN-LAST:event_boton_decimalActionPerformed
+
+    private void boton_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_CActionPerformed
+        // TODO add your handling code here:
+        resultado.setText(resultado.getText().substring(0, resultado.getText().length() - 1));
+    }//GEN-LAST:event_boton_CActionPerformed
+
+    private void boton_restaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_restaActionPerformed
+        // TODO add your handling code here:
+        opera = "-";
+        resultado.setText("");
+    }//GEN-LAST:event_boton_restaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -343,7 +498,6 @@ public class Calculadora extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Calculadora().setVisible(true);
-                
 
             }
         });
