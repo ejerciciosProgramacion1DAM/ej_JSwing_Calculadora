@@ -347,12 +347,14 @@ public class Calculadora extends javax.swing.JFrame {
     private void boton_dividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_dividirActionPerformed
         // TODO add your handling code here:
         opera = "/";
+        num1=resultado.getText();
         resultado.setText("");
     }//GEN-LAST:event_boton_dividirActionPerformed
 
     private void boton_sumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_sumaActionPerformed
         // TODO add your handling code here:
         opera = "+";
+        num1=resultado.getText();
         resultado.setText("");
     }//GEN-LAST:event_boton_sumaActionPerformed
 
@@ -369,6 +371,7 @@ public class Calculadora extends javax.swing.JFrame {
     private void boton_multiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_multiActionPerformed
         // TODO add your handling code here:
         opera = "*";
+        num1=resultado.getText();
         resultado.setText("");
     }//GEN-LAST:event_boton_multiActionPerformed
 
@@ -379,6 +382,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void boton_resultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_resultadoActionPerformed
         // TODO add your handling code here:
+        num2=resultado.getText();
         if (opera == null) {
             num1 = resultado.getText();
             resultado.setText(num1);
@@ -400,8 +404,10 @@ public class Calculadora extends javax.swing.JFrame {
                 }
                 resultado.setText(String.valueOf(solocion));
             } catch (NumberFormatException e) {
+                resultado.setText("ERROR: invalid number");
                 System.out.println("No has introducido un numero valido");
             } catch (ArithmeticException e) {
+                resultado.setText("ERROR: No dividir entre 0");
                 System.out.println("No ser puede dividir entre 0");
             }
         }
@@ -464,6 +470,7 @@ public class Calculadora extends javax.swing.JFrame {
     private void boton_restaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_restaActionPerformed
         // TODO add your handling code here:
         opera = "-";
+        num1=resultado.getText();
         resultado.setText("");
     }//GEN-LAST:event_boton_restaActionPerformed
 
